@@ -183,12 +183,13 @@ PRODUCT_COPY_FILES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.3-service.clearkey \
-    android.hardware.drm@1.3.vendor
+    android.hardware.drm@1.4-service.clearkey \
+    android.hardware.drm@1.4.vendor
 
 # Google Photos
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
+
 
 # Fingerprint
 PRODUCT_PACKAGES += \
