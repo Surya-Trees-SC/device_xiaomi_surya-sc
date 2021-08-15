@@ -1,3 +1,4 @@
+type persist_lcd_prop, property_type;
 type devicesettings_app, domain;
 typeattribute devicesettings_app mlstrustedsubject;
 
@@ -23,6 +24,9 @@ allow devicesettings_app {
 # Allow devicesettings_app read and write /data/data subdirectory
 allow devicesettings_app system_app_data_file:dir create_dir_perms;
 allow devicesettings_app system_app_data_file:{ file lnk_file } create_file_perms;
+
+get_prop(devicesettings_app, persist_lcd_prop)
+set_prop(devicesettings_app, persist_lcd_prop)
 
 # Allow devicesettings_app read props
 allow devicesettings_app default_prop:file { read };
