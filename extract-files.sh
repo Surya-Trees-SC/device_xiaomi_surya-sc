@@ -58,6 +58,9 @@ function blob_fixup() {
         system_ext/lib64/libwfdnative.so)
             "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
+        vendor/bin/mi_thermald)
+            sed -i "s|ug_cpu|ug_uwu|g" "${2}"
+            ;;
         vendor/lib64/hw/camera.qcom.so)
             "${PATCHELF}" --remove-needed "libMegviiFacepp-0.5.2.so" "${2}"
             "${PATCHELF}" --remove-needed "libmegface.so" "${2}"
