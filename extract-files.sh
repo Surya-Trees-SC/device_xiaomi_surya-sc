@@ -57,6 +57,7 @@ function blob_fixup() {
     case "${1}" in
         system_ext/lib64/libwfdnative.so)
             "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
+            "${PATCHELF}" --add-needed "libgui-shim.so" "${2}"
             ;;
         vendor/bin/mi_thermald)
             sed -i "s|ug_cpu|ug_uwu|g" "${2}"
