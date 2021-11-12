@@ -10,4 +10,3 @@ allow vendor_thermal-engine vendor_sysfs_devfreq:file rw_file_perms;
 unix_socket_connect(vendor_thermal-engine, property, init);
 
 set_prop(vendor_thermal-engine, thermal_normal_prop)
-
