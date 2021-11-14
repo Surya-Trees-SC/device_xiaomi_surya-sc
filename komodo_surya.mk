@@ -24,8 +24,7 @@ $(call inherit-product, device/xiaomi/surya/device.mk)
 # Inherit some common AospExtended stuff
 $(call inherit-product, vendor/komodo/config/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
-WITH_GAPPS := true
-
+KOMODO_BUILD_GAPPS_TYPE := GAPPS
 PRODUCT_NAME := komodo_surya
 PRODUCT_DEVICE := surya
 PRODUCT_BRAND := POCO

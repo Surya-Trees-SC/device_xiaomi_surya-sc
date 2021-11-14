@@ -21,7 +21,7 @@ BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 RELAX_USES_LIBRARY_CHECK=true
-
+SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/surya
@@ -31,7 +31,7 @@ include vendor/xiaomi/surya/BoardConfigVendor.mk
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a-dotprod
+TARGET_ARCH_VARIANT := armv8-2a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a76
