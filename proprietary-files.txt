@@ -1,19 +1,16 @@
 # All blobs below are extracted from Surya Global V12.5.4.0.RJGMIXM, unless pinned
 
-# ADSP
-vendor/bin/adsprpcd
-vendor/bin/cdsprpcd
-vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc
-vendor/etc/init/vendor.qti.cdsprpc-service.rc
-vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libadsprpc.so
-vendor/lib64/libcdsp_default_listener.so
-vendor/lib64/libcdsprpc.so
-vendor/lib64/libmdsprpc.so
-vendor/lib64/libsdsprpc.so
-vendor/lib/libadsp_default_listener.so
-vendor/lib/libadsprpc.so
-vendor/lib/libcdsp_default_listener.so
+# ADSP - from LA.UM.9.1.r1-10200-SMxxx0.0
+vendor/bin/adsprpcd|5e246a6f5d2dca27e29b233a17e4673532191b95
+vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc|77f5aaf6d773ee545e39bc5fdc99c65434c05379
+vendor/lib64/libadsp_default_listener.so|f4738e7bf0d5205e9d3b5e290a931d03d2ef700d
+vendor/lib64/libadsprpc.so|77bcb86aceb726f45ef853f10d27d86211db4429
+vendor/lib64/libmdsprpc.so|0e3d865eb12827de8bef517e54be1b42c4c82484
+vendor/lib64/libsdsprpc.so|f1f31d4a306dbd6fef2f1b54cf1c7410c37900aa
+vendor/lib/libadsp_default_listener.so|0661159353dddedd0798117ff2e1c31396a02292
+vendor/lib/libadsprpc.so|c58fc8eb6c0919dc5c21e992a75996446d0107e5
+vendor/lib/libmdsprpc.so|85f8448bc9649fa618cbeb386efc2085c20ba1f7
+vendor/lib/libsdsprpc.so|e58239cc2cec4bad6d328b2f29295a247541ab1f
 
 # ADSP modules
 vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
@@ -388,6 +385,16 @@ vendor/lib64/camera/fdconfigvideolite.bin
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
 
+# CDSP - from LA.UM.9.1.r1-10200-SMxxx0.0
+vendor/bin/cdsprpcd|ea126ed2f1b11622547239f331b8013320c59ad2
+vendor/etc/init/vendor.qti.cdsprpc-service.rc|36772b70216796e8ef19376d9c6a81ee9ffff549
+vendor/lib64/libcdsprpc.so|daa90f06b3bdb89779f1dac92bc77ee5455a22b6
+vendor/lib64/libcdsp_default_listener.so|49de35be8f90e282de225596ab90661fa8ac4422
+vendor/lib64/libsysmon_cdsp_skel.so|8a951e039071107317e0e7541ff4df7ad35d87ad
+vendor/lib/libcdsprpc.so|3f4064f2c26f3bb4eef9175fe5970207f8734130
+vendor/lib/libcdsp_default_listener.so|5e90f604ac99493cfc08a89a2b58f5cf7bfb9683
+vendor/lib/libsysmon_cdsp_skel.so|b0dd56ca83493e68dc7610d44045849bb3bd8c38
+
 # Charger
 vendor/bin/hvdcp_opti
 
@@ -519,11 +526,11 @@ vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
 vendor/lib64/libwvhidl.so
 vendor/lib64/mediadrm/libwvdrmengine.so
 
-# DSP
-vendor/bin/dspservice
-vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
-vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so
+# DSP - from LA.UM.9.1.r1-10200-SMxxx0.0
+vendor/bin/dspservice|a8eb76af6150bbf29c12b76b00ab469b99f563f7
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
+vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|f060101b26d3674bb173e5fc95e118f56a8ac15d
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|0af387d416acf6d697b9edd4090e3a6941696970
 
 # Fingerprint
 vendor/etc/permissions/com.fingerprints.extension.xml
