@@ -94,6 +94,9 @@ ODM_MANIFEST_SURYA_FILES := \
     $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml \
     $(DEVICE_PATH)/configs/hidl/manifest-qva.xml
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_surya
 TARGET_RECOVERY_DEVICE_MODULES := libinit_surya
