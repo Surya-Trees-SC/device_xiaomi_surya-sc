@@ -23,6 +23,7 @@ $(call inherit-product, device/xiaomi/surya/device.mk)
 
 # Inherit some common AospExtended stuff
 $(call inherit-product, vendor/aosp/common.mk)
+TARGET_BOOT_ANIMATION_RES := 1080
 
 PRODUCT_NAME := aosp_surya
 PRODUCT_DEVICE := surya
