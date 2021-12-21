@@ -123,6 +123,12 @@ vendor/lib64/libaudio_log_utils.so
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 
+# Audio Dirac
+lib/libDiracAPI_SHARED.so:vendor/lib/libDiracAPI_SHARED.so
+lib/soundfx/libdirac.so:vendor/lib/soundfx/libdirac.so
+vendor/etc/diracmobile.config
+vendor/lib/rfsa/adsp/libdirac-capiv2.so
+
 # Audio libraries
 vendor/lib/btaudio_offload_if.so
 

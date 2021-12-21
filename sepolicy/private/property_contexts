@@ -1,1 +1,7 @@
+# LCD
 persist.lcd.                   u:object_r:persist_lcd_prop:s0
+
+# Dirac
+audio.dirac.                   u:object_r:dirac_prop:s0
+audio.dirac.logging            u:object_r:dirac_prop:s0
+persist.audio.dirac.           u:object_r:dirac_prop:s0
