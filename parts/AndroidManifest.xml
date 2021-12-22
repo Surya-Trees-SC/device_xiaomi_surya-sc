@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="24"/>
@@ -57,13 +59,7 @@
         <activity
             android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_title"
-	    android:theme="@style/Theme.SubSettingsBase">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.gestures" />
+            android:theme="@style/Theme.SubSettingsBase">
         </activity>
 
         <activity
