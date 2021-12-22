@@ -36,7 +36,6 @@
         <item>@string/dirac_headset_in_ear2</item>
         <item>@string/dirac_headset_earphone_basic</item>
         <item>@string/dirac_headset_earphone</item>
-        <item>@string/dirac_preset_bass_booster</item>
     </string-array>
 
     <string-array name="dirac_headset_pref_values" translatable="false">
@@ -78,6 +77,7 @@
         <item>@string/dirac_preset_country</item>
         <item>@string/dirac_preset_dance</item>
         <item>@string/dirac_preset_metal</item>
+	<item>@string/dirac_preset_bass_booster</item>
     </string-array>
 
     <string-array name="dirac_preset_pref_values" translatable="false">
