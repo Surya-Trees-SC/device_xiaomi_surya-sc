@@ -22,11 +22,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/surya/device.mk)
 
 # Inherit some common AospExtended stuff
-$(call inherit-product, vendor/aosp/common.mk)
+$(call inherit-product, vendor/fluid/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 WITH_GAPPS := true
 
-PRODUCT_NAME := aosp_surya
+PRODUCT_NAME := fluid_surya
 PRODUCT_DEVICE := surya
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X3 NFC
