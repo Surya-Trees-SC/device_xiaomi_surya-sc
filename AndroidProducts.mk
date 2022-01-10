@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fluid_surya.mk
+    $(LOCAL_DIR)/voltage_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    fluid_surya-user \
-    fluid_surya-userdebug \
-    fluid_surya-eng
+    voltage_surya-user \
+    voltage_surya-userdebug \
+    voltage_surya-eng
