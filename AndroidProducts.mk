@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/voltage_surya.mk
+    $(LOCAL_DIR)/krypton_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    voltage_surya-user \
-    voltage_surya-userdebug \
-    voltage_surya-eng
+    krypton_surya-user \
+    krypton_surya-userdebug \
+    krypton_surya-eng
