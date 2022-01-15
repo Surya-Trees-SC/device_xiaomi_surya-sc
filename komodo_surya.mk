@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from surya device
 $(call inherit-product, device/xiaomi/surya/device.mk)
-
+$(call inherit-product, vendor/gapps/common/common-vendor.mk)
 # Inherit some common AospExtended stuff
 $(call inherit-product, vendor/komodo/config/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
