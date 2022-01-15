@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/komodo_surya.mk
+    $(LOCAL_DIR)/streak_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    komodo_surya-userdebug \
+    streak_surya-userdebug \
 
