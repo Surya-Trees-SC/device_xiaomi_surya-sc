@@ -15,9 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/krypton_surya.mk
+    $(LOCAL_DIR)/komodo_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    krypton_surya-user \
-    krypton_surya-userdebug \
-    krypton_surya-eng
+    komodo_surya-userdebug \
+
