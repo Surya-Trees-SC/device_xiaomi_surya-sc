@@ -980,15 +980,14 @@ vendor/firmware/novatek_ts_huaxing_mp.bin
 vendor/firmware/novatek_ts_tianma_fw.bin
 vendor/firmware/novatek_ts_tianma_mp.bin
 
-# Vibrator - AW8624
-vendor/firmware/aw8624_haptic.bin
-vendor/firmware/aw8624_rtp.bin
-vendor/bin/vibrator_calibration
+# Vibrator firmware - AW8624
+vendor/firmware/aw8624_haptic.bin|0d3ac505271e68d22c0c4960a6a580327c77f075
+vendor/firmware/aw8624_rtp.bin|3c06255839cd1884e8d9826952e9bfc7842dc671
+vendor/firmware/osc_rtp_24K_5s.bin|9f32c9bf0776a566d3254129a028dae9bed76b81
 
-# Vibrator - DRV2624
-vendor/firmware/drv2624.bin
-vendor/firmware/drv2624.rtp
-vendor/firmware/Drv2624Date.ini
+# Vibrator firmware - DRV2624
+vendor/firmware/drv2624.bin|15ffeb248386181ccf6895726a618c8f7a579dd5
+vendor/firmware/drv2624.rtp|27e0cb028637b221c1a9967712bc49081ce5e65f
 
 # WLAN
 vendor/bin/cnss-daemon
