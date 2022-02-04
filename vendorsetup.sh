@@ -2,7 +2,7 @@
 # firmware
 git clone https://gitlab.com/fabriciosc123pro/rom-surya-firmware.git firmware/xiaomi/surya
 # kernel
-git clone https://github.com/ghostrider-reborn/android_kernel_xiaomi_surya -b perf  kernel/xiaomi/surya
+git clone https://github.com/Surya-Trees-SC/kernel_xiaomi_surya-sc.git kernel/xiaomi/surya
 # vendor
 git clone  https://github.com/xiaomeme-surya/android_vendor_xiaomi_surya.git vendor/xiaomi/surya
 # devicesettings
