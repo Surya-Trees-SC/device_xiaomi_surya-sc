@@ -13,6 +13,8 @@ git clone https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 git clone https://github.com/XSans02/XSansTC-Clang/ -b master prebuilts/clang/host/linux-x86/clang-14
 touch prebuilts/clang/host/linux-x86/clang-14/AndroidVersion.txt
 echo 14  > prebuilts/clang/host/linux-x86/clang-14/AndroidVersion.txt
+# Fix Kernel hardware_pixel
+rm -rf hardware/google/pixel/kernel_headers/Android.bp
 # Qcom-Caf
 rm -rf hardware/qcom-caf/sm8150/audio
 rm -rf hardware/qcom-caf/sm8150/media
