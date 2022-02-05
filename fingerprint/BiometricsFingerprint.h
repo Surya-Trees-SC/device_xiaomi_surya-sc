@@ -34,17 +34,11 @@ using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-<<<<<<< HEAD
 using ::android::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo;
 using ::android::hardware::biometrics::fingerprint::V2_1::FingerprintError;
 using ::android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback;
 using ::android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
 using ::android::hardware::biometrics::fingerprint::V2_3::IBiometricsFingerprint;
-=======
-using ::android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint;
-using ::android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback;
-using ::android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
->>>>>>> bd5e781 (surya: fingerprint: Clang-format the code)
 
 struct BiometricsFingerprint : public IBiometricsFingerprint {
   public:

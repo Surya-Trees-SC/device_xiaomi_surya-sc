@@ -31,11 +31,6 @@ namespace implementation {
 // Supported fingerprint HAL version
 static const uint16_t kVersion = HARDWARE_MODULE_API_VERSION(2, 1);
 
-<<<<<<< HEAD
-=======
-using RequestStatus = android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
-
->>>>>>> bd5e781 (surya: fingerprint: Clang-format the code)
 BiometricsFingerprint* BiometricsFingerprint::sInstance = nullptr;
 
 BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
@@ -379,7 +374,6 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t* msg) {
     }
 }
 
-<<<<<<< HEAD
 /**
  * Returns whether the fingerprint sensor is an under-display fingerprint
  * sensor.
@@ -438,10 +432,6 @@ Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
 
 }  // namespace implementation
 }  // namespace V2_3
-=======
-}  // namespace implementation
-}  // namespace V2_1
->>>>>>> bd5e781 (surya: fingerprint: Clang-format the code)
 }  // namespace fingerprint
 }  // namespace biometrics
 }  // namespace hardware
