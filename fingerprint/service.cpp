@@ -21,6 +21,7 @@
 
 #include "BiometricsFingerprint.h"
 
+<<<<<<< HEAD
 using android::sp;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
@@ -31,6 +32,13 @@ using android::hardware::biometrics::fingerprint::V2_3::implementation::Biometri
 using android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint;
 using android::hardware::biometrics::fingerprint::V2_1::implementation::BiometricsFingerprint;
 >>>>>>> bd5e781 (surya: fingerprint: Clang-format the code)
+=======
+using android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint;
+using android::hardware::biometrics::fingerprint::V2_1::implementation::BiometricsFingerprint;
+using android::hardware::configureRpcThreadpool;
+using android::hardware::joinRpcThreadpool;
+using android::sp;
+>>>>>>> parent of bd5e781 (surya: fingerprint: Clang-format the code)
 
 int main() {
     android::sp<IBiometricsFingerprint> bio = BiometricsFingerprint::getInstance();
@@ -47,5 +55,5 @@ int main() {
 
     joinRpcThreadpool();
 
-    return 0;  // should never get here
+    return 0; // should never get here
 }
