@@ -1,0 +1,3 @@
+allow priv_app default_prop:property_service { set };
+allow priv_app init:unix_stream_socket { connectto };
+allow priv_app property_socket:sock_file { write };

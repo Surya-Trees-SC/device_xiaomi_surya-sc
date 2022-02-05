@@ -52,11 +52,16 @@ genfscon sysfs /devices/virtual/input/input1/wakeup5/max_time_ms u:object_r:sysf
 genfscon sysfs /devices/virtual/input/input1/wakeup5/event_count u:object_r:sysfs_wakeup:s0
 
 # ds28e16 battery verify
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,qpnp-smb5/power_supply/battery/wakeup34 u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/soc:maxim_ds28e16/power_supply/batt_verify u:object_r:vendor_sysfs_battery_supply:s0
-
 genfscon sysfs /devices/platform/soc/a8c000.i2c/i2c-2/2-0065/power_supply/bq2597x-standalone/type    u:object_r:vendor_sysfs_battery_supply:s0
-
 genfscon proc /last_kmsg u:object_r:proc_last_kmsg:s0
 
 # Power
 genfscon proc /sys/kernel/sched_energy_aware u:object_r:proc_sched_energy_aware:s0
+
+# usb
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd/usbpd0/otg_default/wakeup37 u:object_r:vendor_sysfs_usbpd_device:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,qpnp-smb5/power_supply/pc_port/wakeup33 u:object_r:vendor_sysfs_usb_supply:s0
+
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,pm6150_rtc/rtc/rtc0/wakeup6 u:object_r:sysfs_rtc:s0
