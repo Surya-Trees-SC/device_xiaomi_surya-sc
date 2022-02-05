@@ -8,6 +8,7 @@ git clone https://github.com/Surya-Trees-SC/vendor_xiaomi_surya-sc vendor/xiaomi
 rm -rf packages/resources/devicesettings
 git clone https://github.com/Surya-Trees-SC/packages_resources_devicesettings.git -b twelve packages/resources/devicesettings
 # hardware
+rm -rf hardware/xiaomi
 git clone https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 # Proton
 git clone https://github.com/XSans02/XSansTC-Clang/ -b master prebuilts/clang/host/linux-x86/clang-14
