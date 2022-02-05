@@ -20,6 +20,8 @@ rm -rf hardware/qcom-caf/sm8150/display
 git clone https://github.com/Surya-Trees-SC/hardware_qcom_display.git -b twelve-sm8150 hardware/qcom-caf/sm8150/display
 git clone https://github.com/Surya-Trees-SC/hardware_qcom_audio.git -b twelve-sm8150 hardware/qcom-caf/sm8150/audio
 git clone https://github.com/Surya-Trees-SC/hardware_qcom_media.git -b twelve-sm8150 hardware/qcom-caf/sm8150/media
+# Lawnchair
+git clone https://github.com/Surya-Trees-SC/vendor_lawnchair.git vendor/lawnchair
 # Add Ccache Fix
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
