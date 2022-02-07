@@ -67,3 +67,4 @@ allow hal_camera_default default_prop:file { getattr  map  open };
 allow hal_camera_default device_logging_prop:file { getattr  map  open };
 allow hal_camera_default dhcp_prop:file { getattr  map  open };
 allow hal_camera_default drm_service_config_prop:file { open };
+allow hal_camera_default default_prop:file { read };
