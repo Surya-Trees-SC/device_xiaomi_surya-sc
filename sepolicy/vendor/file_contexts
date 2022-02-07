@@ -7,6 +7,9 @@
 # Camera
 /mnt/vendor/persist/camera(/.*)?                                     u:object_r:camera_persist_file:s0
 
+# Vibrator
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_sm6150    u:object_r:hal_vibrator_default_exec:s0
+
 # Data files
 /data/per_boot(/.*)?                                                 u:object_r:per_boot_file:s0
 
