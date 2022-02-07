@@ -4,19 +4,8 @@ git clone https://gitlab.com/fabriciosc123pro/rom-surya-firmware.git firmware/xi
 git clone https://github.com/Surya-Trees-SC/kernel_xiaomi_surya-sc.git kernel/xiaomi/surya
 # vendor
 git clone https://github.com/Surya-Trees-SC/vendor_xiaomi_surya-sc vendor/xiaomi/surya
-# devicesettings
-rm -rf packages/resources/devicesettings
-git clone https://github.com/Surya-Trees-SC/packages_resources_devicesettings.git -b twelve packages/resources/devicesettings
 # hardware
-rm -rf hardware/xiaomi
 git clone https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
-# Qcom-Caf
-rm -rf hardware/qcom-caf/sm8150/audio
-rm -rf hardware/qcom-caf/sm8150/media
-rm -rf hardware/qcom-caf/sm8150/display
-git clone https://github.com/Surya-Trees-SC/hardware_qcom_display.git -b twelve-sm8150 hardware/qcom-caf/sm8150/display
-git clone https://github.com/Surya-Trees-SC/hardware_qcom_audio.git -b twelve-sm8150 hardware/qcom-caf/sm8150/audio
-git clone https://github.com/Surya-Trees-SC/hardware_qcom_media.git -b twelve-sm8150 hardware/qcom-caf/sm8150/media
 # Lawnchair
 git clone https://github.com/Surya-Trees-SC/vendor_lawnchair.git vendor/lawnchair
 # Add Ccache Fix
