@@ -21,10 +21,5 @@ vendor.powerhal.                   u:object_r:vendor_power_prop:s0
 ro.boot.hwc                        u:object_r:build_prop:s0
 ro.boot.hwversion                  u:object_r:build_prop:s0
 
-# Xiaomi specific build properties
-ro.boot.hwc                        u:object_r:build_prop:s0
-ro.boot.hwversion                  u:object_r:build_prop:s0
-
 # Thermal
 vendor.sys.thermal.		   u:object_r:thermal_normal_prop:s0
-
