@@ -211,6 +211,10 @@ on post-fs-data
 on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
 
+    # Restrict permissions to socket file 
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
+
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
     user vendor_qrtr
