@@ -1,0 +1,10 @@
+allow system_app installd:binder { call };
+allow system_app netd:binder { call };
+allow system_app proc_pagetypeinfo:file { getattr  open  read };
+allow system_app storaged:binder { call };
+allow system_app system_suspend:binder { call };
+allow system_app system_suspend_control_internal_service:service_manager { find };
+allow system_app system_suspend_control_service:service_manager { find };
+allow system_app tracingproxy_service:service_manager { find };
+allow system_app unlabeled:file { read };
+allow system_app vold:binder { call };

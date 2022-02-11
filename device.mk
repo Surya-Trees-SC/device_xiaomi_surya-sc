@@ -90,6 +90,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     OtoMusic
 
+# DeviceSettings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Fix Gcam Audio Recorder
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/camera-power-whitelist.xml \

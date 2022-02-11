@@ -25,18 +25,14 @@ public class DiracSound extends AudioEffect {
     private static final int DIRACSOUND_PARAM_HEADSET_TYPE = 1;
     private static final int DIRACSOUND_PARAM_EQ_LEVEL = 2;
     private static final int DIRACSOUND_PARAM_MUSIC = 4;
+    private static final int DIRACSOUND_PARAM_HIFI = 8;
 
     private static final UUID EFFECT_TYPE_DIRACSOUND =
-            UUID.fromString("e069d9e0-8329-11df-9168-0002a5d5c51b");
+            UUID.fromString("5b8e36a5-144a-4c38-b1d7-0002a5d5c51b");
     private static final String TAG = "DiracSound";
 
     public DiracSound(int priority, int audioSession) {
         super(EFFECT_TYPE_NULL, EFFECT_TYPE_DIRACSOUND, priority, audioSession);
-    }
-
-    public void setMusic(int enable) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
     }
 
     public int getMusic() throws IllegalStateException,
@@ -44,6 +40,11 @@ public class DiracSound extends AudioEffect {
         int[] value = new int[1];
         checkStatus(getParameter(DIRACSOUND_PARAM_MUSIC, value));
         return value[0];
+    }
+
+    public void setMusic(int enable) throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException {
+        checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
     }
 
     public void setHeadsetType(int type) throws IllegalStateException,
@@ -57,4 +58,8 @@ public class DiracSound extends AudioEffect {
                 String.valueOf(level).getBytes()));
     }
 
+    public void setHifiMode(int mode) throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException {
+        checkStatus(setParameter(DIRACSOUND_PARAM_HIFI, mode));
+    }
 }

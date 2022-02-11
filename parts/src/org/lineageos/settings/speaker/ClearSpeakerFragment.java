@@ -77,8 +77,8 @@ public class ClearSpeakerFragment extends PreferenceFragment implements
 
     @Override
     public void onStop() {
-        super.onStop();
         stopPlaying();
+        super.onStop();
     }
 
     public boolean startPlaying() {
@@ -107,12 +107,9 @@ public class ClearSpeakerFragment extends PreferenceFragment implements
 
     public void stopPlaying() {
         if (mMediaPlayer != null) {
-            if (mMediaPlayer.isPlaying()) {
-                mMediaPlayer.stop();
-                mMediaPlayer.reset();
-                mMediaPlayer.release();
-                mMediaPlayer=null;
-            }
+            mMediaPlayer.stop();
+            mMediaPlayer.reset();
+            mMediaPlayer.release();
         }
         mAudioManager.setParameters("status_earpiece_clean=off");
         mClearSpeakerPref.setEnabled(true);
