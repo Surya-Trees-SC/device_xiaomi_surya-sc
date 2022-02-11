@@ -1,8 +1,5 @@
 /*
-   Copyright (c) 2015, The Linux Foundation. All rights reserved.
-   Copyright (C) 2016 The CyanogenMod Project.
-   Copyright (C) 2019-2020 The LineageOS Project.
-   Copyright (C) 2021 Paranoid Android.
+   Copyright (C) 2020 The LineageOS Project.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -16,6 +13,7 @@
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
+
    THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -29,74 +27,88 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <cstdlib>
-#include <string.h>
+#include <vector>
 
+#include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
-#include <android-base/properties.h>
-
-#include "property_service.h"
-#include "vendor_init.h"
 
 using android::base::GetProperty;
-using std::string;
 
-void property_override(char const prop[], char const value[])
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "bootimage.",
+    "odm.",
+    "product.",
+    "system.",
+    "system_ext.",
+    "vendor.",
+};
+
+void property_override(char const prop[], char const value[], bool add = true)
 {
-    auto pi = (prop_info*) __system_property_find(prop);
+    prop_info *pi;
 
-    if (pi != nullptr)
+    pi = (prop_info *) __system_property_find(prop);
+    if (pi)
         __system_property_update(pi, value, strlen(value));
-    else
+    else if (add)
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void set_ro_build_prop(const string &source, const string &prop,
-                       const string &value, bool product = false) {
-    string prop_name;
-
-    if (product)
-        prop_name = "ro.product." + source + prop;
-    else
-        prop_name = "ro." + source + "build." + prop;
-
-    property_override(prop_name.c_str(), value.c_str());
-}
-
-void set_device_props(const string brand, const string device,
-        const string model, const string name, const string marketname) {
-    // list of partitions to override props
-    string source_partitions[] = { "", "bootimage.", "odm.", "product.",
-                                   "system.", "system_ext.", "vendor." };
-
-    for (const string &source : source_partitions) {
-        set_ro_build_prop(source, "brand", brand, true);
-        set_ro_build_prop(source, "device", device, true);
-        set_ro_build_prop(source, "product", device, false);
-        set_ro_build_prop(source, "model", model, true);
-        set_ro_build_prop(source, "name", name, true);
-        set_ro_build_prop(source, "marketname", marketname, true);
+void set_ro_build_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro." + source + "build." + prop;
+        if (source == "")
+            property_override(prop_name.c_str(), value.c_str());
+        else
+            property_override(prop_name.c_str(), value.c_str(), false);
     }
-}
+};
 
-void vendor_load_properties()
-{
-    /*
-     * Detect device and configure properties
-     */
-    if (GetProperty("ro.boot.hwname", "") == "karna") { // POCO X3 (India)
-        set_device_props("POCO", "karna", "M2007J20CI", "karna_in", "POCO X3");
-    } else { // POCO X3 NFC
-        string hwc = GetProperty("ro.boot.hwc", "");
-        if (hwc == "THAI" || hwc == "THAI_PA") // POCO X3 NFC Thailand
-            set_device_props("POCO", "surya", "M2007J20CT", "surya_global", "POCO X3 NFC");
-        else // POCO X3 NFC Global
-            set_device_props("POCO", "surya", "M2007J20CG", "surya_global", "POCO X3 NFC");
+void set_ro_product_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro.product." + source + prop;
+        property_override(prop_name.c_str(), value.c_str(), false);
     }
+};
 
-    // Set hardware revision
-    property_override("ro.boot.hardware.revision", GetProperty("ro.boot.hwversion", "").c_str());
+void vendor_load_properties() {
+    std::string hwname = GetProperty("ro.boot.hwname", "");
+
+    std::string model;
+    std::string device;
+    std::string fingerprint;
+    std::string description;
+    std::string name;
+    std::string mod_device;
+
+    if (hwname == "surya") {
+	device = "surya";
+        model = "M2007J20CG";
+        mod_device = "surya_global";
+	name = "surya_global";
+	fingerprint = "google/raven/raven:12/S2B3.220205.007.A1/8133516:user/release-keys";
+	description = "surya_eea-user 11 RKQ1.200826.002 V12.5.4.0.RJGMIXM release-keys";
+    } else if (hwname == "karna") {
+	device = "karna";
+        model = "M2007J20CI";
+        mod_device = "surya_in_global";
+	name = "karna_in";
+	fingerprint = "google/raven/raven:12/S2B3.220205.007.A1/8133516:user/release-keys";
+	description = "surya_in-user 11 RKQ1.200826.002 V12.5.4.0.RJGMIXM release-keys";
+   }
+
+    set_ro_build_prop("fingerprint", fingerprint);
+    set_ro_product_prop("brand", "POCO");
+    set_ro_product_prop("device", device);
+    set_ro_product_prop("product", device);
+    set_ro_product_prop("model", model);
+    set_ro_product_prop("name", name);
+    property_override("ro.build.description", description.c_str());
+    if (mod_device != "") {
+        property_override("ro.product.mod_device", mod_device.c_str());
+    }
 
     //  SafetyNet workaround
     property_override("ro.boot.verifiedbootstate", "green");
