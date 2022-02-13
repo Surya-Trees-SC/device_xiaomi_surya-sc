@@ -1,1 +1,0 @@
-allow odrefresh odrefresh:capability { sys_admin kill };

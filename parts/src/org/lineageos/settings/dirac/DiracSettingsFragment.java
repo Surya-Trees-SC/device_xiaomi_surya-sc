@@ -47,7 +47,6 @@ public class DiracSettingsFragment extends PreferenceFragment implements
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.dirac_settings);
-
         DiracUtils.initialize(getActivity());
         boolean enhancerEnabled = DiracUtils.isDiracEnabled();
 
@@ -94,7 +93,7 @@ public class DiracSettingsFragment extends PreferenceFragment implements
     public void onSwitchChanged(Switch switchView, boolean isChecked) {
         mSwitchBar.setChecked(isChecked);
 
-        DiracUtils.setMusic(isChecked);
+        DiracUtils.setEnabled(isChecked);
 
         if (!DiracUtils.getHifiMode()) {
             mHeadsetType.setEnabled(isChecked);
