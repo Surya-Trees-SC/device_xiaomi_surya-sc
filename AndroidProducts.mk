@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/elytra_surya.mk
+    $(LOCAL_DIR)/xtended_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    elytra_surya-userdebug \
+    xtended_surya-userdebug \
 

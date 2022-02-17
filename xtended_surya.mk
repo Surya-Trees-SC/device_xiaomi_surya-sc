@@ -22,10 +22,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/surya/device.mk)
 
 # Inherit some common Aosp stuff
-$(call inherit-product, vendor/elytra/config/common_full_phone.mk)
+$(call inherit-product, vendor/xtended/config/common_full_phone.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
-PRODUCT_NAME := elytra_surya
+PRODUCT_NAME := xtended_surya
 PRODUCT_DEVICE := surya
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X3 NFC
@@ -34,5 +34,4 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Configs
-USE_GAPPS := true
 TARGET_SUPPORTS_QUICK_TAP := true
