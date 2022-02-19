@@ -90,7 +90,8 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
-    OtoMusic
+    OtoMusic \
+    NovaLauncher
 
 # Bluetooth
 PRODUCT_PACKAGES += \
