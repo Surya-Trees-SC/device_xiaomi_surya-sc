@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/xtended_surya.mk
+    $(LOCAL_DIR)/cherish_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    xtended_surya-userdebug \
+    cherish_surya-userdebug \
 

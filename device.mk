@@ -89,6 +89,7 @@ PRODUCT_COPY_FILES += \
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
     OtoMusic
+    NovaLauncher
 
 # IRQ balance
 PRODUCT_COPY_FILES += \
