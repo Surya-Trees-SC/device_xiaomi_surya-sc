@@ -183,7 +183,7 @@ persist.sys.sf.color_mode=9
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Chipset
-ro.soc.manufacturer=Qualcomm
+ro.soc.manufacturer=QTI
 ro.soc.model=SM7150
 
 # HVDCP
