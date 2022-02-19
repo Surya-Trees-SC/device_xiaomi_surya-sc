@@ -88,6 +88,18 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
+# Fix Gcam Audio Recorder
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/camera-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/camera-power-whitelist.xml \
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.common@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.common@2.0.so \
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.device@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.device@2.0.so \
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.device@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.device@2.1.so \
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.0.so \
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.1.so \ 
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.2.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.2.so \  
+    $(LOCAL_PATH)/configs/libcameraservice.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcameraservice.so
+
+
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
     OtoMusic \
