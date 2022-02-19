@@ -88,6 +88,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
+# remove packges
+PRODUCT_PACKAGES += \
+    RemovePkgs
+
 # Fix Gcam Audio Recorder
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/camera-power-whitelist.xml \
