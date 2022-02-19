@@ -99,10 +99,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/android.frameworks.cameraservice.device@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.device@2.0.so \
     $(LOCAL_PATH)/configs/android.frameworks.cameraservice.device@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.device@2.1.so \
     $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.0.so \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.1.so \ 
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.2.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.2.so \  
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.1.so \
+    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.2.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.2.so \
     $(LOCAL_PATH)/configs/libcameraservice.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcameraservice.so
-
 
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
