@@ -11,10 +11,6 @@ ro.charger.enable_suspend=true
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
-# LCD features
-persist.lcd.cabc_mode=0
-persist.lcd.hbm_mode=0
-
 # Media
 media.aac_51_output_enabled=true
 media.stagefright.enable-aac=true
@@ -34,11 +30,11 @@ ro.netflix.bsp_rev=Q6150-17263-1
 persist.rcs.supported=1
 
 # Radio
-persist.sys.fflag.override.settings_provider_model=false
 persist.radio.multisim.config=dsds
 persist.radio.NO_STAPA=1
 persist.radio.VT_CAM_INTERFACE=1
 persist.radio.VT_HYBRID_ENABLE=1
+persist.sys.fflag.override.settings_provider_model=false
 ril.subscription.types=RUIM
 ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=22,22

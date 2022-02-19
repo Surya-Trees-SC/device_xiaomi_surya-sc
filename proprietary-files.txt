@@ -1,6 +1,5 @@
 # All blobs below are extracted from Surya Global V12.5.4.0.RJGMIXM, unless pinned
 
-# ADSP - from LA.UM.9.1.r1-10200-SMxxx0.0
 # ADSP
 vendor/bin/adsprpcd
 vendor/bin/cdsprpcd
@@ -126,12 +125,6 @@ vendor/lib64/libaudio_log_utils.so
 # Audio FX modules
 system_ext/etc/permissions/audiosphere.xml
 -system_ext/framework/audiosphere.jar
-
-# Audio Dirac
-lib/libDiracAPI_SHARED.so:vendor/lib/libDiracAPI_SHARED.so
-lib/soundfx/libdirac.so:vendor/lib/soundfx/libdirac.so
-vendor/etc/diracmobile.config
-vendor/lib/rfsa/adsp/libdirac-capiv2.so
 
 # Audio libraries
 vendor/lib/btaudio_offload_if.so
@@ -395,22 +388,9 @@ vendor/lib64/camera/fdconfigvideolite.bin
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
 
-# Camera service
-lib/libcameraservice.so
-
 # Camera provider
 vendor/lib/android.hardware.camera.provider@2.4-legacy.so
 vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
-
-# CDSP - from LA.UM.9.1.r1-10200-SMxxx0.0
-vendor/bin/cdsprpcd|ea126ed2f1b11622547239f331b8013320c59ad2
-vendor/etc/init/vendor.qti.cdsprpc-service.rc|36772b70216796e8ef19376d9c6a81ee9ffff549
-vendor/lib64/libcdsprpc.so|daa90f06b3bdb89779f1dac92bc77ee5455a22b6
-vendor/lib64/libcdsp_default_listener.so|49de35be8f90e282de225596ab90661fa8ac4422
-vendor/lib64/libsysmon_cdsp_skel.so|8a951e039071107317e0e7541ff4df7ad35d87ad
-vendor/lib/libcdsprpc.so|3f4064f2c26f3bb4eef9175fe5970207f8734130
-vendor/lib/libcdsp_default_listener.so|5e90f604ac99493cfc08a89a2b58f5cf7bfb9683
-vendor/lib/libsysmon_cdsp_skel.so|b0dd56ca83493e68dc7610d44045849bb3bd8c38
 
 # Charger
 vendor/bin/hvdcp_opti
@@ -608,13 +588,6 @@ vendor/lib64/libVkLayer_q3dtools.so|3f24de3d0ceacb4b99320de1c98fca528a43262a
 vendor/lib/hw/vulkan.adreno.so|e592c2ba93a78c9ad0765a81a66cffef25145125
 vendor/lib64/hw/vulkan.adreno.so|8a4573fdb8dea4907c845741e8dbd2efc9094c94
 
-# Graphics (VulkanAPI Layers) From Google Pixel 4 XL coral-user 12 SP1A.211105.002 7743617 release-keys
--vendor/app/adreno_graphics_driver/adreno_graphics_driver.apk|48806ee3413a591ab35a262b3c0f88fd8ea85fbf
--vendor/app/gpu_profiling_vulkan_layer/gpu_profiling_vulkan_layer.apk|00194817bafefbf8f83a9d46087ac0a1a18fae6b
-
-# IRQ balance
-vendor/bin/msm_irqbalance
-
 # Graphics firmware
 vendor/firmware/a615_zap.b00
 vendor/firmware/a615_zap.b01
@@ -628,6 +601,10 @@ vendor/firmware/a630_sqe.fw
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
+
+# Graphics (VulkanAPI Layers) From Google Pixel 4 XL coral-user 12 SP1A.211105.002 7743617 release-keys
+-vendor/app/adreno_graphics_driver/adreno_graphics_driver.apk|48806ee3413a591ab35a262b3c0f88fd8ea85fbf
+-vendor/app/gpu_profiling_vulkan_layer/gpu_profiling_vulkan_layer.apk|00194817bafefbf8f83a9d46087ac0a1a18fae6b
 
 # GPS
 vendor/bin/loc_launcher
@@ -735,6 +712,9 @@ vendor/firmware/ipa_fws.mdt
 
 # IR
 vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.sm6150.so
+
+# IRQ balance
+vendor/bin/msm_irqbalance
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti

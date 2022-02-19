@@ -30,9 +30,6 @@ import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
-    mount debugfs debugfs /sys/kernel/trancing
-    chmod 0755 /sys/kernel/debug/tracing
-
     # Change ownership of hw_recovery related nodes
     chown system graphics /sys/kernel/debug/dri/0/debug/dump
     chown system graphics /sys/kernel/debug/dri/0/debug/recovery_reg
@@ -208,10 +205,6 @@ on post-fs-data
 
 on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
-
-    # Restrict permissions to socket file 
-    # to hide Magisk & co.
-    chmod 440 /proc/net/unix
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core

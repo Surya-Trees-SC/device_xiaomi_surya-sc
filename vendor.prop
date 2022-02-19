@@ -6,7 +6,6 @@ af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio.offload.min.duration.secs=40
 audio.offload.video=true
-ro.vendor.audio.soundfx.type=mi
 persist.vendor.audio.avs.afe_api_version=2
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true
@@ -22,6 +21,7 @@ ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=11
 ro.vendor.audio.sdk.fluencetype=none
 ro.vendor.audio.sfx.scenario=true
+ro.vendor.audio.soundfx.type=mi
 ro.vendor.audio.soundfx.usb=true
 vendor.audio.adm.buffering.ms=2
 vendor.audio.feature.a2dp_offload.enable=true
@@ -88,9 +88,6 @@ vendor.audio.use.sw.ape.decoder=true
 vendor.audio.volume.headset.gain.depcal=true
 vendor.voice.path.for.pcm.voip=true
 
-# CNE
-persist.vendor.cne.feature=1
-
 # Bluetooth
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
@@ -105,16 +102,11 @@ ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=cherokee
 
-# Dirac
-audio.dirac.logging=0
-ro.audio.soundfx.dirac=true
-persist.audio.dirac.speaker=true
-persist.dirac.acs.controller=qem
-persist.dirac.acs.storeSettings=1
-persist.dirac.acs.ignore_error=1
-
 # Camera
 camera.disable_zsl_mode=1
+
+# CNE
+persist.vendor.cne.feature=1
 
 # Data modules
 persist.vendor.data.iwlan.enable=true
@@ -128,6 +120,7 @@ persist.vendor.dpmhalservice.enable=1
 
 # Display
 debug.egl.hw=0
+debug.hwui.renderer=skiavk
 debug.mdpcomp.logs=0
 debug.sf.disable_backpressure=1
 debug.sf.use_phase_offsets_as_durations=1
@@ -138,10 +131,8 @@ debug.sf.early.app.duration=16600000
 debug.sf.earlyGl.sf.duration=16600000
 debug.sf.earlyGl.app.duration=16600000
 debug.sf.enable_hwc_vds=0
-debug.hwui.renderer=skiavk
 debug.sf.frame_rate_multiple_threshold=120
 debug.sf.hw=0
-debug.sf.latch_unsignaled=0
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
@@ -150,9 +141,9 @@ ro.surface_flinger.has_wide_color_display=false
 ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.max_virtual_display_dimension=4096
+ro.surface_flinger.protected_contents=true
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
-ro.surface_flinger.protected_contents=true
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.sm6150.api30
@@ -161,9 +152,9 @@ vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
 vendor.display.disable_decimation=1
 vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
+vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_idle_time_hdr=1
 vendor.display.disable_idle_time_video=1
-vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
 vendor.display.disable_ui_3d_tonemap=1
@@ -171,9 +162,9 @@ vendor.display.enable_default_color_mode=1
 vendor.display.enable_force_split=0
 vendor.display.enable_null_display=0
 vendor.display.enable_optimize_refresh=1
-vendor.gralloc.disable_ubwc=0
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
+vendor.gralloc.disable_ubwc=0
 
 # Display - Dynamic refresh rate
 ro.surface_flinger.set_display_power_timer_ms=1000
@@ -192,7 +183,7 @@ persist.sys.sf.color_mode=9
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Chipset
-ro.soc.manufacturer=QTI
+ro.soc.manufacturer=Qualcomm
 ro.soc.model=SM7150
 
 # HVDCP
@@ -239,9 +230,6 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.report_codec=1
 persist.vendor.radio.sib16_support=1
-
-# System
-persist.sys.binary_xml=false
 
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
