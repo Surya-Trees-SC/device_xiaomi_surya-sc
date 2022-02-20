@@ -102,6 +102,13 @@ ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=cherokee
 
+# Dolby
+persist.vendor.audio_fx.current=dolby
+ro.audio.monitorRotation=true
+ro.vendor.dolby.dax.version=DS1_2.2.0.0_r1
+vendor.audio.dolby.ds2.enabled=true
+vendor.audio.dolby.ds2.hardbypass=true
+
 # Camera
 camera.disable_zsl_mode=1
 

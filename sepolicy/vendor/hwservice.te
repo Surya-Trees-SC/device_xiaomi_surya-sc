@@ -1,2 +1,4 @@
 type nxpese_hwservice, hwservice_manager_type;
 type nxpnfc_hwservice, hwservice_manager_type;
+# Dolby
+vendor.dolby.hardware.dms::IDms                                               u:object_r:hal_dms_hwservice:s0
