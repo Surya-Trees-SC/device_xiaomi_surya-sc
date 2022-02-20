@@ -22,7 +22,7 @@ include $(BUILD_PREBUILT)
 #NovaLauncher
 include $(CLEAR_VARS)
 LOCAL_MODULE := NovaLauncher
-LOCAL_SRC_FILES := NovaLauncher.apk
+LOCAL_SRC_FILES := Apps/NovaLauncher/NovaLauncher.apk
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_OVERRIDES_PACKAGES := Launcher
