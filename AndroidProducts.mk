@@ -15,7 +15,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cherish_surya.mk
+    $(LOCAL_DIR)/aosp_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    cherish_surya-userdebug 
+    aosp_surya-userdebug 
