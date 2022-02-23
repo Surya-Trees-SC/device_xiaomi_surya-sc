@@ -89,14 +89,14 @@ void vendor_load_properties() {
         mod_device = "surya_global";
 	name = "surya_global";
 	fingerprint = "google/raven/raven:12/S2B3.220205.007.A1/8133516:user/release-keys";
-	description = "surya_eea-user 11 RKQ1.200826.002 V12.5.4.0.RJGMIXM release-keys";
+	description = "surya_eea-user 11 RKQ1.200826.002 V12.5.5.0.RJGEUXM release-keys";
     } else if (hwname == "karna") {
 	device = "karna";
         model = "M2007J20CI";
         mod_device = "surya_in_global";
 	name = "karna_in";
 	fingerprint = "google/raven/raven:12/S2B3.220205.007.A1/8133516:user/release-keys";
-	description = "surya_in-user 11 RKQ1.200826.002 V12.5.4.0.RJGMIXM release-keys";
+	description = "surya_in-user 11 RKQ1.200826.002 V12.5.5.0.RJGEUXM release-keys";
    }
 
     set_ro_build_prop("fingerprint", fingerprint);
