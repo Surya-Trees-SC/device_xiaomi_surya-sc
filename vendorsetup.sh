@@ -12,7 +12,7 @@ if [[ -e kernel/xiaomi/surya ]];then
 cd $HOME/kernel/xiaomi/surya
 git pull
 else
-git clone https://github.com/PixelExperience-Devices/kernel_xiaomi_surya.git $HOME/kernel/xiaomi/surya
+git clone https://github.com/ArrowOS-Devices/android_kernel_xiaomi_surya.git  $HOME/kernel/xiaomi/surya
 fi
 # vendor
 if [[ -e vendor/xiaomi/surya ]];then

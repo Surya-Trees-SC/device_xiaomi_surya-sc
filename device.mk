@@ -16,7 +16,6 @@
 
 # Product launched with 10.0
 PRODUCT_SHIPPING_API_LEVEL := 29
-BOARD_SHIPPING_API_LEVEL := 30
 
 # Enforce native interfaces of product partition as VNDK
 PRODUCT_PRODUCT_VNDK_VERSION := current
@@ -32,9 +31,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/surya/surya-vendor.mk)
-
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -54,7 +50,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio@2.0-impl
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.soundtrigger@2.2-impl
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -68,8 +65,15 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libtinycompress
 
-# Firmware Surya
-$(call inherit-product, firmware/xiaomi/surya/Android.mk)
+# remove packges
+PRODUCT_PACKAGES += \
+    RemovePkgs
+
+# Prebuilt Packages
+PRODUCT_PACKAGES += \
+    OtoMusic \
+    NovaLauncher \
+    GcamGo
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -80,7 +84,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tavil.txt \
     $(LOCAL_PATH)/configs/audio/mixer_paths_idp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_idp.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9375.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9375.xml \
-    $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
+    $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths_wcd9340.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths_wcd9340.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
@@ -90,26 +97,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
-
-# remove packges
-PRODUCT_PACKAGES += \
-    RemovePkgs
-
-# Fix Gcam Audio Recorder
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/camera-power-whitelist.xml \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.common@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.common@2.0.so \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.device@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.device@2.0.so \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.device@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.device@2.1.so \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.0.so \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.1.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.1.so \
-    $(LOCAL_PATH)/configs/android.frameworks.cameraservice.service@2.2.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/android.frameworks.cameraservice.service@2.2.so \
-    $(LOCAL_PATH)/configs/libcameraservice.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcameraservice.so
-
-# Prebuilt Packages
-PRODUCT_PACKAGES += \
-    OtoMusic \
-    NovaLauncher
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -141,8 +128,7 @@ PRODUCT_PACKAGES += \
     libshim_megvii
 
 PRODUCT_PACKAGES += \
-    Snap \
-    GcamGo
+    Snap
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -278,7 +264,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout)
+    $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -290,7 +276,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+    vendor.lineage.livedisplay@2.1-service.surya
 
 # Media
 PRODUCT_PACKAGES += \
@@ -356,7 +342,11 @@ PRODUCT_COPY_FILES += \
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-cherish
+    $(LOCAL_PATH)/overlay-aosp
+
+# Google Photos
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
 
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
@@ -376,8 +366,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.xiaomi-libperfmgr \
-    android.hardware.power.stats@1.0-service.mock
+    android.hardware.power-service.xiaomi-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -477,10 +466,10 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.xiaomi_sm6150
+    vendor.qti.hardware.vibrator.service
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
+    $(LOCAL_PATH)/configs/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
 # Vulkan
 PRODUCT_PACKAGES += \

@@ -2,7 +2,6 @@
 vendor.bluetooth.soc=cherokee
 
 # Camera
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # Charger
@@ -45,6 +44,3 @@ ro.recovery.ui.margin_height=48
 
 # WiFi
 wifi.interface=wlan0
-
-# Disable vsync for cpu rendered apps
-debug.cpurend.vsync=false

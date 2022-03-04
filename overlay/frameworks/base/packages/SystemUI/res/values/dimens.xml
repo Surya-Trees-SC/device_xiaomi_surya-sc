@@ -16,7 +16,19 @@
 -->
 <resources>
     <!-- the padding on the top of the statusbar (usually 0) -->
-    <dimen name="status_bar_padding_top">1dp</dimen>
+    <dimen name="status_bar_padding_top">8dp</dimen>
+
+    <!-- the padding on the rouded corner content -->
+    <dimen name="rounded_corner_content_padding">6dp</dimen>
+
+    <!-- the padding on the start of the statusbar -->
+    <dimen name="status_bar_padding_start">12dp</dimen>
+
+    <!-- the padding on the end of the statusbar -->
+    <dimen name="status_bar_padding_end">12dp</dimen>
+
+    <!-- the padding on the end of the keyguard statusbar -->
+    <dimen name="system_icons_keyguard_padding_end">14dp</dimen>
 
     <!-- Margin start of the system icons super container -->
     <dimen name="system_icons_super_container_avatarless_margin_end">33px</dimen>
@@ -26,17 +38,4 @@
 
     <!-- Margin on the left side of the carrier text on Keyguard -->
     <dimen name="keyguard_carrier_text_margin">44px</dimen>
-
-    <!-- The padding around the statusbar -->
-    <dimen name="rounded_corner_content_padding">16dp</dimen>
-
-    <!-- Location on the screen of the center of the physical power button. -->
-    <dimen name="physical_power_button_center_screen_location_y">1030px</dimen>
-
-    <!-- Location on the screen of the center of the physical volume up/down buttons. -->
-    <dimen name="physical_volume_up_button_center_screen_location_y">500px</dimen>
-    <dimen name="physical_volume_down_button_center_screen_location_y">655px</dimen>
-
-    <!-- Location on the screen of the center of the fingerprint sensor. -->
-    <dimen name="physical_fingerprint_sensor_center_screen_location_y">1030px</dimen>
 </resources>

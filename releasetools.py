@@ -1,5 +1,6 @@
 # Copyright (C) 2009 The Android Open Source Project
-# Copyright (c) 2011, The Linux Foundation. All rights reserved.
+# Copyright (C) 2019 The Mokee Open Source Project
+# Copyright (C) 2020 The LineageOS Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,10 +27,9 @@ def IncrementalOTA_InstallEnd(info):
 
 def AddImage(info, basename, dest):
   name = basename
-  data = info.input_zip.read("IMAGES/" + basename)
-  common.ZipWriteStr(info.output_zip, name, data)
-  info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
-  info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
+  path = "IMAGES/" + name
+  if path not in info.input_zip.namelist():
+    return
 
 def AddImageRadio(info, basename, dest):
   name = basename
