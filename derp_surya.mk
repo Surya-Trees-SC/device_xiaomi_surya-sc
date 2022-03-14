@@ -32,6 +32,12 @@ PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X3 NFC
 PRODUCT_MANUFACTURER := Xiaomi
 
+# GApps
+TARGET_GAPPS_ARCH := arm64
+
+# Pixel Charging
+USE_PIXEL_CHARGING := true
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Quick Tap
