@@ -15,7 +15,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/hentai_surya.mk
+    $(LOCAL_DIR)/aicp_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    hentai_surya-userdebug 
+    aicp_surya-userdebug 
