@@ -28,16 +28,4 @@ git pull
 else
 git clone https://github.com/PixelExperience/hardware_xiaomi $HOME/hardware/xiaomi
 fi
-# livedisplay
-if [[ -e hardware/lineage/livedisplay ]];then
-cd $HOME/hardware/lineage/livedisplay
-git pull
-else
-git clone https://github.com/LineageOS/android_hardware_lineage_livedisplay.git -b lineage-19.0 $HOME/hardware/lineage/livedisplay
-fi
 cd $HOME
-# Add Ccache Fix
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-export CCACHE_DIR=/mnt/ccache
-ccache -M 50G -F 0 
