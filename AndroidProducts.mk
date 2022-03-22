@@ -15,7 +15,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aicp_surya.mk
+    $(LOCAL_DIR)/komodo_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    aicp_surya-userdebug 
+    komodo_surya-userdebug 
