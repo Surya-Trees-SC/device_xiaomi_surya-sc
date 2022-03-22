@@ -40,5 +40,8 @@ USE_PIXEL_CHARGING := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
+# Faceunlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 # Quick Tap
 TARGET_SUPPORTS_QUICK_TAP := true
