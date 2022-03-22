@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/surya/device.mk)
 
 # Inherit some common aosp stuff.
-$(call inherit-product, vendor/komodo/config/common_full_phone.mk)
+$(call inherit-product, vendor/komodo/config/common.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 PRODUCT_NAME := komodo_surya
