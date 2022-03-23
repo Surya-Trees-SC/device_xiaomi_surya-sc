@@ -10,6 +10,10 @@ ro.charger.enable_suspend=true
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
+# Dexopt
+pm.dexopt.first-boot=quicken
+pm.dexopt.bg-dexopt=everything
+
 # Media
 media.aac_51_output_enabled=true
 media.stagefright.enable-aac=true

@@ -123,3 +123,9 @@ service mi_thermald /vendor/bin/mi_thermald
     user root
     group system
     seclabel u:r:mi_thermald:s0
+
+on post-fs && property:ro.boot.hwname=surya
+    mount none /vendor/firmware_mnt/image/bdf_j20g.bin /vendor/firmware_mnt/image/bdwlan.bin bind
+
+on post-fs && property:ro.boot.hwname=karna
+    mount none /vendor/firmware_mnt/image/bdf_j20i.bin /vendor/firmware_mnt/image/bdwlan.bin bind

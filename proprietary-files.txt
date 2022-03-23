@@ -1053,5 +1053,5 @@ vendor/lib/libwfdutils_proprietary.so
 vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
 vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 
-# WLAN
-vendor/bin/cnss-daemon
+# WLAN - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
+vendor/bin/cnss-daemon|2efe1199ef5eaee518127edebab356ed934fdf7a
