@@ -23,14 +23,10 @@ git clone https://github.com/Surya-Trees-SC/vendor_xiaomi_surya-sc $HOME/vendor/
 fi
 # hardware
 if [[ -e hardware/xiaomi ]];then
-cd $HOME/hardware/xiaomi/surya
+cd $HOME/hardware/xiaomi
 git pull
 else
-git clone https://github.com/PixelExperience/hardware_xiaomi $HOME/hardware/xiaomi
+git clone https://github.com/LineageOS/android_hardware_xiaomi.git -b lineage-19.1 $HOME/hardware/xiaomi
 fi
 cd $HOME
-# Add Ccache Fix
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-export CCACHE_DIR=/mnt/ccache
-ccache -M 50G -F 0 
+

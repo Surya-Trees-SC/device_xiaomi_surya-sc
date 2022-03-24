@@ -32,6 +32,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/surya/surya-vendor.mk)
 
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -44,6 +47,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
+
+# Atrace
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0-service
+
+# remove packges
+PRODUCT_PACKAGES += \
+    RemovePkgs
+
+# Prebuilt Packages
+PRODUCT_PACKAGES += \
+    OtoMusic \
+    GcamGo
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -64,16 +80,6 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     libaudio-resampler \
     libtinycompress
-
-# remove packges
-PRODUCT_PACKAGES += \
-    RemovePkgs
-
-# Prebuilt Packages
-PRODUCT_PACKAGES += \
-    OtoMusic \
-    NovaLauncher \
-    GcamGo
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -97,6 +103,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
+
+# Google Photos
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -126,9 +136,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libshim_megvii
-
-PRODUCT_PACKAGES += \
-    Snap
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -188,8 +195,7 @@ PRODUCT_PACKAGES += \
 # Fstab
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/fstab.zram:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -344,17 +350,12 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-aosp
 
-# Google Photos
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml
-
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
 PRODUCT_PACKAGES += \
     KarnaPowerProfile \
     KarnaSettingsProviderOverlay \
-    SuryaSettingsProviderOverlay \
-    NotchBarKiller \
+    SuryaSettingsProviderOverlay
 
 # Partitions
 PRODUCT_BUILD_SUPER_PARTITION := false
@@ -401,7 +402,8 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.multihal
+    android.hardware.sensors@2.1-service.multihal \
+    init.qcom.sensors.sh
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -423,16 +425,10 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     ims-ext-common \
     ims_ext_common.xml \
-    extphonelib \
-    extphonelib-product \
-    extphonelib.xml \
-    extphonelib_product.xml \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
-    qti-telephony-utils-prd \
     qti_telephony_utils.xml \
-    qti_telephony_utils_prd.xml \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
@@ -448,10 +444,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # Uevent
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
@@ -466,10 +458,10 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+    vendor.qti.hardware.vibrator.service.xiaomi_sm6150
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
+    $(LOCAL_PATH)/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
 # Vulkan
 PRODUCT_PACKAGES += \
@@ -520,11 +512,5 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libwfdaac_vendor
 
-#PRODUCT_BOOT_JARS += \
-#    WfdCommon
-
-# ZRAM writeback
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.zram.mark_idle_delay_mins=60 \
-    ro.zram.first_wb_delay_mins=1440 \
-    ro.zram.periodic_wb_delay_hours=24
+PRODUCT_BOOT_JARS += \
+    WfdCommon

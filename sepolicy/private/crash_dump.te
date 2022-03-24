@@ -1,1 +1,0 @@
-allow crash_dump zram_control_prop:file { getattr  map  open };

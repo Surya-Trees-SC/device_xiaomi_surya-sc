@@ -508,7 +508,7 @@
     </integer-array>
 
     <!-- Height of the status bar in portrait -->
-    <dimen name="status_bar_height_portrait">98.0px</dimen>
+    <dimen name="status_bar_height">98.0px</dimen>
 
     <!-- Color mode to use when accessibility transforms are enabled. This color mode must be
          supported by the device, but not necessarily appear in config_availableColorModes. The
@@ -586,6 +586,20 @@
     -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">M 0,0 H -36 V 91 H 36 V 0 H 0 Z</string>
 
-    <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
-    <bool name="config_zramWriteback">true</bool>
+    <!-- Indicates whether device has a power button fingerprint sensor. -->
+    <bool name="config_is_powerbutton_fps" translatable="false">true</bool>
+
+    <!-- An array of arrays of side fingerprint sensor properties relative to each display.
+         Note: this value is temporary and is expected to be queried directly
+         from the HAL in the future. -->
+    <array name="config_sfps_sensor_props" translatable="false">
+        <item>@array/config_sfps_sensor_props_0</item>
+    </array>
+
+    <array name="config_sfps_sensor_props_0" translatable="false">
+        <item>local:4630946688386997377</item> <!--item>displayId</item-->
+        <item>1080</item> <!--item>sensorLocationX</item-->
+        <item>910</item> <!--item>sensorLocationY</item-->
+        <item>115</item> <!--item>sensorRadius</item-->
+    </array>
 </resources>

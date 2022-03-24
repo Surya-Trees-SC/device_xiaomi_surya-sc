@@ -1,1 +1,0 @@
-allow shell unlabeled:file { read };

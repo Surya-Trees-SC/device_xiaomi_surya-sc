@@ -14,11 +14,6 @@
 # limitations under the License.
 #
 
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-SELINUX_IGNORE_NEVERALLOWS := true
-RELAX_USES_LIBRARY_CHECK := true
-BUILD_BROKEN_DUP_RULES := true
-
 BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/surya
@@ -86,6 +81,9 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
 # FM
 BOARD_HAVE_QCOM_FM := true
+
+# RelaxLibrary
+RELAX_USES_LIBRARY_CHECK := true
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
@@ -196,6 +194,7 @@ VENDOR_SECURITY_PATCH := 2022-01-01
 # Sepolicy
 TARGET_SEPOLICY_DIR := msmsteppe
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor

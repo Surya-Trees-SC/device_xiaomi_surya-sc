@@ -1,2 +1,0 @@
-allow priv_app unlabeled:file { read };
-allow priv_app property_socket:sock_file { write };
