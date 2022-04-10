@@ -15,7 +15,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/kscope_surya.mk
+    $(LOCAL_DIR)/arrow_surya.mk
 
 COMMON_LUNCH_CHOICES := \
-    kscope_surya-userdebug 
+    arrow_surya-userdebug 
