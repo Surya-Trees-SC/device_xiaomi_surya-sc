@@ -1,1 +1,4 @@
-allow system_server proc_last_kmsg:file { open read getattr };
+get_prop(system_server, vendor_fp_prop);
+get_prop(system_server, vendor_display_notch_prop)
+allow system_server init:binder { call };
+allow system_server system_server:capability { sys_module };

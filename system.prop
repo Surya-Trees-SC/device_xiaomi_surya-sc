@@ -1,7 +1,14 @@
+# Audio
+ro.config.media_vol_default=8
+ro.config.media_vol_steps=25
+ro.config.vc_call_vol_default=6
+ro.config.vc_call_vol_steps=7
+
 # Bluetooth
 vendor.bluetooth.soc=cherokee
 
 # Camera
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # Charger
@@ -9,6 +16,16 @@ ro.charger.enable_suspend=true
 
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
+
+# Havoc
+ro.havoc.device.name=Xiaomi Poco X3 / NFC
+ro.havoc.group.url=https://t.me/+CsTtPCwRqiRlY2Jl
+ro.havoc.maintainer=Tushar Mahajan
+ro.havoc.maintainer.username=mahajant99
+
+# LCD features
+persist.lcd.cabc_mode=0
+persist.lcd.hbm_mode=0
 
 # Media
 media.aac_51_output_enabled=true
@@ -25,6 +42,9 @@ persist.mm.enable.prefetch=true
 # Netflix custom property
 ro.netflix.bsp_rev=Q6150-17263-1
 
+# Perfetto
+persist.device_config.runtime_native_boot.iorap_readahead_enable=true
+
 # RCS
 persist.rcs.supported=1
 
@@ -33,6 +53,7 @@ persist.radio.multisim.config=dsds
 persist.radio.NO_STAPA=1
 persist.radio.VT_CAM_INTERFACE=1
 persist.radio.VT_HYBRID_ENABLE=1
+persist.sys.fflag.override.settings_provider_model=false
 ril.subscription.types=RUIM
 ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=22,22
@@ -41,5 +62,11 @@ telephony.lteOnCdmaDevice=1
 # Recovery
 ro.recovery.ui.margin_height=48
 
+# Time
+persist.vendor.delta_time.enable=true
+
 # WiFi
 wifi.interface=wlan0
+
+# Zygote
+persist.device_config.runtime_native.usap_pool_enabled=true

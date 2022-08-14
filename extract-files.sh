@@ -53,27 +53,6 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
-function blob_fixup() {
-    case "${1}" in
-        system_ext/lib64/libwfdnative.so)
-            "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
-            ;;
-        vendor/lib64/hw/camera.qcom.so)
-            "${PATCHELF}" --remove-needed "libMegviiFacepp-0.5.2.so" "${2}"
-            "${PATCHELF}" --remove-needed "libmegface.so" "${2}"
-            "${PATCHELF}" --add-needed "libshim_megvii.so" "${2}"
-            ;;
-    esac
-}
-
-function blob_fixup() {
-    case "${1}" in
-        vendor/bin/mi_thermald)
-            sed -i "s|ug_cpu|ug_uwu|g" "${2}"
-            ;;
-    esac
-}
-
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 

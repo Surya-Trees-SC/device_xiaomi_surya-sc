@@ -74,39 +74,34 @@ void set_ro_product_prop(const std::string &prop, const std::string &value) {
 };
 
 void vendor_load_properties() {
+    std::string hardware_revision = GetProperty("ro.boot.hwversion", "");
     std::string hwname = GetProperty("ro.boot.hwname", "");
+    std::string region = GetProperty("ro.boot.hwc", "");
 
     std::string model;
     std::string device;
     std::string fingerprint;
     std::string description;
-    std::string name;
-    std::string mod_device;
 
-    if (hwname == "surya") {
-	device = "surya";
-        model = "M2007J20CG";
-        mod_device = "surya_global";
-	name = "surya_global";
-	fingerprint = "google/raven/raven:12/SP2A.220405.004/8233519:user/release-keys";
-	description = "surya_eea-user 11 RKQ1.200826.002 V12.5.5.0.RJGMIXM release-keys";
-    } else if (hwname == "karna") {
-	device = "karna";
+    if (hwname == "karna") {
         model = "M2007J20CI";
-        mod_device = "surya_in_global";
-	name = "karna_in";
-	fingerprint = "google/raven/raven:12/SP2A.220405.004/8233519:user/release-keys";
-	description = "surya_in-user 11 RKQ1.200826.002 V12.5.5.0.RJGMIXM release-keys";
-   }
+        device = "karna";
+    } else {
+        device = "surya";
+
+        if (region == "THAI" || region == "THAI_PA")
+            model = "M2007J20CT";
+        else
+            model = "M2007J20CG";
+    }
+
+    fingerprint = "google/redfin/redfin:12/SQ3A.220705.003.A1/8672226:user/release-keys";
+    description = "surya_eea-user 11 RKQ1.200826.002 V12.5.2.0.RJGEUXM release-keys";
 
     set_ro_build_prop("fingerprint", fingerprint);
-    set_ro_product_prop("brand", "POCO");
     set_ro_product_prop("device", device);
-    set_ro_product_prop("product", device);
     set_ro_product_prop("model", model);
-    set_ro_product_prop("name", name);
     property_override("ro.build.description", description.c_str());
-    if (mod_device != "") {
-        property_override("ro.product.mod_device", mod_device.c_str());
-    }
+
+    property_override("ro.boot.hardware.revision", hardware_revision.c_str());
 }
